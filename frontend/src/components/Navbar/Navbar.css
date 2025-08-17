@@ -3,7 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #ffffff;
 }
 
 .navbar .logo {
@@ -229,7 +232,7 @@
         box-shadow: -12px 0 32px rgba(0,0,0,0.18);
         border-top-left-radius: 14px;
         border-bottom-left-radius: 14px;
-        z-index: 20;
+        z-index: 50;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
     }
