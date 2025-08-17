@@ -13,7 +13,7 @@ import adminRouter from "./routes/adminRoute.js";
 // App config
 
 const app = express();
-const port = 5000 ;
+const port = process.env.PORT || 5000 ;
 
 // middleware
 // whenever we get a request, express.json() will be parses and executed 
