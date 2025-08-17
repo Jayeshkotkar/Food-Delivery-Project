@@ -45,10 +45,6 @@
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
 }
 
-.hamburger:hover span {
-    background: #3a3a3a;
-}
-
 .hamburger.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -78,7 +74,7 @@
     box-shadow: none;
 }
 
-.navbar button :hover {
+.navbar button:hover:not(.hamburger) {
     background-color: #fff4f2;
 }
 
