@@ -36,6 +36,8 @@ export const LoginPopUp = ({setShowLogin}) => {
         newUrl += "/api/user/register";
       }
 
+        console.log("newURL",newUrl);
+
       try {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
