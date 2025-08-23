@@ -25,8 +25,13 @@ app.use(cors())  // access backend from frontend and frontend use data from back
 connectDB();
 
 // api endpoints
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use("/images", express.static(path.join(__dirname, "uploads")));
+
 app.use("/api/food", foodRouter);   
-app.use("/images", express.static("uploads"));
+// app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart",cartRouter);
 app.use("/api/order", orderRouter);
