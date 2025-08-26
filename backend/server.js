@@ -8,7 +8,8 @@ import "dotenv/config"
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import adminRouter from "./routes/adminRoute.js";
-
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 // App config
 
