@@ -29,7 +29,10 @@ connectDB();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Serve static files from uploads directory
 app.use("/images", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/food", foodRouter);   
 // app.use("/images", express.static("uploads"));
@@ -38,8 +41,9 @@ app.use("/api/cart",cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/admin", adminRouter);
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+// Images Upload
 
 app.get("/", (req,res)=>{
     res.send("Hello World");
