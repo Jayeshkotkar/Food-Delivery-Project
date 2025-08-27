@@ -38,7 +38,7 @@ app.use("/api/cart",cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/admin", adminRouter);
 
-// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 app.get("/", (req,res)=>{
