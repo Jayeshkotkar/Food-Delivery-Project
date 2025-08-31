@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #ffffff;
 }
 
 .navbar .logo {
@@ -24,6 +28,36 @@
     gap: 40px;
 }
 
+.hamburger {
+    display: none;
+    width: 36px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 4px;
+    background: #2a2a2a;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 .navbar button {
     background: transparent;
     font-size: 16px;
@@ -35,7 +69,15 @@
     transition: 0.3s;
 }
 
-.navbar button :hover {
+.navbar .hamburger {
+    border: none !important;
+    outline: none;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.navbar button:hover:not(.hamburger) {
     background-color: #fff4f2;
 }
 
@@ -167,14 +209,57 @@
 }
 
 
+.drawer-auth {
+    display: none;
+}
 
 @media (max-width: 750px) {
+    .navbar {
+        padding-right: 60px;
+    }
     .navbar-menu {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 72vw;
+        max-width: 360px;
+        background: #ffffff;
+        gap: 10px;
+        padding: 96px 20px 24px;
+        box-shadow: -12px 0 32px rgba(0,0,0,0.18);
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;
+        z-index: 50;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
 
     .navbar-right {
-        gap: 10px;
+        gap: 12px;
+        margin-right: 56px; /* space so icons don't sit under hamburger */
+        align-items: center;
+    }
+
+    .navbar-right img {
+        width: 22px;
+        height: 22px;
+        display: block;
+    }
+
+    .navbar-search-icon {
+        margin-left: 10px;
+    }
+
+    .navbar-right > img:first-child {
+        display: none;
+    }
+
+    .navbar-search-icon .dot {
+        top: -6px;
+        right: -6px;
     }
     
     .navbar-buttons {
@@ -184,5 +269,92 @@
     .navbar-buttons button {
         padding: 8px 20px;
         font-size: 14px;
+    }
+
+    .hamburger {
+        display: inline-block;
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 30;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .navbar-menu.open {
+        transform: translateX(0);
+    }
+
+    .navbar-menu.open a,
+    .navbar-menu.open .active {
+        width: 100%;
+    }
+
+    .navbar-menu .active {
+        border-bottom: none !important;
+        padding-bottom: 0;
+    }
+
+    .navbar-menu a,
+    .navbar-menu .active {
+        color: #2a334f;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.35;
+        padding: 12px 14px;
+        border-radius: 10px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .navbar-menu a:hover,
+    .navbar-menu .active:hover {
+        background: #fff4f2;
+        color: tomato;
+    }
+
+    .navbar-right .navbar-buttons {
+        display: none;
+    }
+
+    .drawer-auth {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .drawer-btn {
+        background: transparent;
+        border: none;
+        text-align: left;
+        padding: 12px 14px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #2a334f;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .drawer-btn:hover {
+        background: #fff4f2;
+        color: tomato;
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(1px);
+        z-index: 15;
+    }
+
+    .hamburger img {
+        width: 26px;
+        height: 26px;
+        z-index: 25;
     }
 }

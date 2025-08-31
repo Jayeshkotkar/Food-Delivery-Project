@@ -1,16 +1,33 @@
 import express from "express";
 import { addFood, getAllFood, removeFood } from "../controllers/foodController.js";
 import multer from "multer";  // for image upload or storage system
+import cloudinary from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 
 const foodRouter = express.Router();
 
 // Image Storage System
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.CLOUD_API_KEY,
+//     api_secret: process.env.CLOUD_API_SECRET
+// })
+
+
+// const storage = new CloudinaryStorage({
+//     cloudinary: cloudinary,
+//     params: {
+//       folder: 'Airbnb_Project',
+//       allowed_formats: ["png","jpg","jpeg"],
+//     },
+//   });
+
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "uploads/");
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
     },
-    filename: (req, file, cb) => {
-        return cb(null, `${Date.now()}${file.originalname}`);
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
     }
 });
 
