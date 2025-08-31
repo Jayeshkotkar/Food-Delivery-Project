@@ -12,8 +12,8 @@ const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
 
-    const url = "http://localhost:5000";
-    const admin_url="http://localhost:5174";
+    const url = "https://food-delivery-backend-jkiy.onrender.com";
+    const admin_url="https://food-delivery-frontend-jbme.onrender.com";
     const [token, setToken] = useState("");
 
     const [food_list,setFoodList] = useState([]);
