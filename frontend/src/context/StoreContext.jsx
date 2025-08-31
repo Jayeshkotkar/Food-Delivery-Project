@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 
-
+ 
 
 export const StoreContext = createContext(null);
 
@@ -13,7 +13,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
 
     const url = "https://food-delivery-backend-jkiy.onrender.com";
-    const admin_url="https://food-delivery-frontend-jbme.onrender.com";
+    const admin_url="https://food-delivery-admin-basm.onrender.com";
     const [token, setToken] = useState("");
 
     const [food_list,setFoodList] = useState([]);
